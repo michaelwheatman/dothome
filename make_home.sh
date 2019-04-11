@@ -57,7 +57,6 @@ function update_home() {
 function upload_changes() {
 	DOT_HOME="$HOME/.home"
 	DOT_FILE_REPO="dotfiles"
-	echo "$DOT_HOME/$DOT_FILE_REPO"
 	if [[ ! -d "$DOT_HOME/$DOT_FILE_REPO" ]]; then
 		echo "dotfiles repo does not exist. consider creating it."
 		return
