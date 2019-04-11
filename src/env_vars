@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Michael Wheatman
+# Last Update: April 11, 2019
+
+export MW_ENV_DOT_HOME="$HOME/.home"
+export MW_ENV_DOT_FILE_REPO="dotfiles"
+

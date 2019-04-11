@@ -25,6 +25,7 @@ function make_home() {
 	ln -s src/bashrc ~/.bashrc
 	ln -s src/bash_aliases ~/.bash_aliases
 	ln -s src/vimrc ~/.vimrc
+	ln -s src/env_vars ~/.env_vars
         ln -s src/bash/functions.sh ~/.functions.sh
 
 	if [[ ! -d "~/src/bash" ]]; then
