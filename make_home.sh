@@ -2,9 +2,6 @@
 # Michael Wheatman
 # Last Update: April 11, 2019
 
-DOT_HOME="$HOME/.home"
-DOT_FILE_REPO="dotfiles"
-
 function make_home() {
 	DOT_HOME="$HOME/.home"
 	DOT_FILE_REPO="dotfiles"
