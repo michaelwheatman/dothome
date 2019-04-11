@@ -2,16 +2,19 @@
 # Michael Wheatman
 # Last Update: April 11, 2019
 
-DOT_HOME='$HOME/.home'
-DOT_FILE_REPO='dotfiles'
+DOT_HOME="$HOME/.home"
+DOT_FILE_REPO="dotfiles"
 
 function make_home() {
-	DOT_FILE_REPO_ADDRESS='httos://github.com/michaelwheatman//$DOT_FILE_REPO'
-	if [! -d $DOT_HOME]; then
+	DOT_HOME="$HOME/.home"
+	DOT_FILE_REPO="dotfiles"
+	CWD=$PWD
+	DOT_FILE_REPO_ADDRESS="httos://github.com/michaelwheatman//$DOT_FILE_REPO"
+	if [[ ! -d $DOT_HOME ]]; then
 		mkdir $DOT_HOME
 	fi
 	cd $DOT_HOME
-	if [! -d $DOT_FILE_REPO]; then
+	if [[ ! -d $DOT_FILE_REPO ]]; then
 		git clone $DOT_FILE_REPO_ADDRESS
 		cd $DOT_FILE_REPO
 	else
@@ -24,34 +27,44 @@ function make_home() {
 	ln -s src/vimrc ~/.vimrc
         ln -s src/bash/functions.sh ~/.functions.sh
 
-	if [! -d '~/src/bash']; then
-		mkdir '~/src/bash'
+	if [[ ! -d "~/src/bash" ]]; then
+		mkdir "~/src/bash"
 	fi
 
 	ln -s src/bash ~/bin/bash
 
-	if [! -d '~/src/python']; then
-		mkdir '~/src/python'
+	if [[ ! -d "~/src/python" ]]; then
+		mkdir "~/src/python"
 	fi
 
-	ln -s 'src/python' '~/bin/python'
+	ln -s "src/python" "~/bin/python"
+	cd $CWD
 }
 
 function update_home() {
-	if [! -d '$DOT_HOME/$DOT_FILE_REPO']; then
+	DOT_HOME="$HOME/.home"
+	DOT_FILE_REPO="dotfiles"
+	CWD=$PWD
+	if [[ ! -d "$DOT_HOME/$DOT_FILE_REPO" ]]; then
 		make_home
 		return
 	fi
-	cd '$DOT_HOME/$DOT_FILE_REPO'
+	cd "$DOT_HOME/$DOT_FILE_REPO"
 	git pull
+	cd $CWD
 }
 
 function upload_changes() {
-	if [! -d '$DOT_HOME/$DOT_FILE_REPO']; then
+	DOT_HOME="$HOME/.home"
+	DOT_FILE_REPO="dotfiles"
+	echo "$DOT_HOME/$DOT_FILE_REPO"
+	if [[ ! -d "$DOT_HOME/$DOT_FILE_REPO" ]]; then
 		echo "dotfiles repo does not exist. consider creating it."
 		return
 	fi
-	cd '$DOT_HOME/$DOT_FILE_REPO'
+	CWD=$PWD
+	cd "$DOT_HOME/$DOT_FILE_REPO"
 	git commit -am "upload changes to dot files"
 	git push
+	cd $CWD
 }
