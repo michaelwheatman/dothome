@@ -1,0 +1,58 @@
+set nocompatible
+
+filetype indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" AutoIndent
+set ai
+
+" shows what you are typing as a command
+set showcmd
+
+" turn on line numbers
+set number
+
+set encoding=utf8
+
+set ignorecase
+
+set smartcase
+
+set hlsearch
+
+set incsearch
+
+set ruler
+
+set history=10000
+
+set showmatch
+
+set cursorline
+
+hi CursorLine term=none cterm=none ctermbg=3
+
+inoremap jj <Esc>
+
+syntax on
+
+filetype on
+filetype plugin on
+syntax enable
+set grepprg=grep\ -nH\ $"
+
+set background=dark
+colorscheme darkblue
+
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+filetype plugin indent on

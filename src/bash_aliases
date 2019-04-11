@@ -1,0 +1,13 @@
+#.alias.sh
+#if there are colors defined for ls, then use them
+if [ `uname` = 'Linux` ]; then
+  alias ls='ls -F --color=tty'
+else
+  alias ls='ls -F'
+fi
+alias which='type -a'
+alias lsa='ls -a'
+alias vim='vim -X'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
